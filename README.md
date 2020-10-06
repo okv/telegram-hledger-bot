@@ -1,6 +1,6 @@
 # telegram hledger bot
 
-Expenses tracking bot which generates [hledger files](https://hledger.org/journal.html) for you.
+Expenses tracking bot that adds transactions to your [hledger web](https://hledger.org/hledger-web.html) instance.
 
 Work in progress...
 
