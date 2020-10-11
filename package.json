@@ -1,0 +1,38 @@
+{
+  "name": "telegram-hledger-bot",
+  "version": "1.0.0-alpha.1",
+  "description": "Expenses tracking bot that adds transactions to your hledger web instance",
+  "main": "lib/server.mjs",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint --ext mjs ./",
+    "dev": "nodemon -e js,mjs,json -i test -w . lib/server.mjs",
+    "test": "echo \"Test script is not set\"; exit 1",
+    "start": "echo \"Start script is not set\"; exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okv/telegram-hledger-bot.git"
+  },
+  "keywords": [],
+  "author": "Oleg Korobenko <oleg.korobenko@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/okv/telegram-hledger-bot/issues"
+  },
+  "homepage": "https://github.com/okv/telegram-hledger-bot#readme",
+  "dependencies": {
+    "fastify": "3.5.1",
+    "fastify-autoload": "3.3.0",
+    "fastify-env": "2.0.1",
+    "fastify-plugin": "2.3.4",
+    "pino-pretty": "4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "7.7.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "nodemon": "2.0.4"
+  }
+}
