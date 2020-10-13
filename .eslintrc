@@ -33,7 +33,9 @@
 				"optionalDependencies": false,
 				"peerDependencies": false
 			}
-		]
+		],
+		"import/prefer-default-export": "off",
+		"import/extensions": "off"
 	},
 	"env": {
 		"mocha": true
