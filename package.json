@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint --ext mjs ./",
     "dev": "nodemon -e js,mjs,json -i test -w . lib/server.mjs",
-    "test": "echo \"Test script is not set\"; exit 1",
+    "test": "mocha --bail --reporter spec --recursive",
     "start": "echo \"Start script is not set\"; exit 1"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "eslint": "7.7.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.0",
+    "mocha": "8.1.3",
     "nodemon": "2.0.4"
   }
 }
