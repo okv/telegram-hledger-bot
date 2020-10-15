@@ -4,3 +4,4 @@ Expenses tracking bot that adds transactions to your [hledger web](https://hledg
 
 Work in progress...
 
+[![Build Status](https://travis-ci.org/okv/telegram-hledger-bot.svg?branch=main)](https://travis-ci.org/okv/telegram-hledger-bot)
