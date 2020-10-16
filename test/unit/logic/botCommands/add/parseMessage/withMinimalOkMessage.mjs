@@ -11,10 +11,15 @@ describe('logic/botCommands/add/parseMessage with minimal ok message', () => {
 
 	it('should return expected parsed message', () => {
 		assert(typeof parsedMessage === 'object', 'Should return parsed message');
+		assert.deepStrictEqual(
+			Object.keys(parsedMessage).sort(),
+			['ok', 'postings', 'description'].sort(),
+			'Parsed message should have only expected keys'
+		);
 		assert.equal(parsedMessage.ok, true, 'Parsed message should be ok');
 		assert.deepStrictEqual(
 			parsedMessage.postings,
-			[{account: 'Expenses', amount: 100}, {account: null, amount: -100}],
+			[{account: 'Expenses', amount: 100}],
 			'Parsed message should have postings'
 		);
 		assert.equal(
