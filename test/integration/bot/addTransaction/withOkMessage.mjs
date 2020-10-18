@@ -3,7 +3,7 @@ import fastify from 'fastify';
 import fetch from 'node-fetch';
 import initApp from '../../../../lib/app.mjs';
 
-describe('bot add transaction with minimal ok message', () => {
+describe('bot add transaction with ok message', () => {
 	const app = fastify();
 	const hledgerApp = fastify();
 	let hledgerUrl;
@@ -18,7 +18,7 @@ describe('bot add transaction with minimal ok message', () => {
 		await app.ready();
 		await app.launchBot();
 
-		hledgerApp.put('/add', () => {
+		hledgerApp.put('/add', (req) => {
 			return {};
 		});
 		hledgerUrl = new URL(process.env.THB_HLEDGER_BASE_PATH);
