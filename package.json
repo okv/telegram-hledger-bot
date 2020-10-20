@@ -10,7 +10,11 @@
     "lint": "eslint --ext mjs ./",
     "dev": "nodemon -e js,mjs,json -i test -w . lib/server.mjs",
     "test": "mocha --bail --reporter spec --recursive",
-    "start": "echo \"Start script is not set\"; exit 1"
+    "start": "echo \"Start script is not set\"; exit 1",
+    "_build-docker-image": "if [ \"$imageTag\" = \"\" ]; then echo \"imageTag is not set\"; exit 1; fi; docker build --network host --tag okvd/telegram-hledger-bot:$imageTag ./ -f ./docker/Dockerfile",
+    "build-docker-image": "export imageTag=$npm_package_version && npm run _build-docker-image",
+    "build-docker-image-alpha": "export imageTag=alpha && npm run _build-docker-image",
+    "build-docker-image-latest": "export imageTag=latest && npm run _build-docker-image"
   },
   "repository": {
     "type": "git",
