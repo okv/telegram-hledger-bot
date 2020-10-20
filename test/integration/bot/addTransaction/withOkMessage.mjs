@@ -4,7 +4,9 @@ import fetch from 'node-fetch';
 import initApp from '../../../../lib/app.mjs';
 
 describe('bot add transaction with ok message', () => {
-	const app = fastify();
+	const app = fastify({
+		bodyLimit: 10240
+	});
 	const hledgerApp = fastify({logger: {level: 'error', prettyPrint: true}});
 	let testData;
 
