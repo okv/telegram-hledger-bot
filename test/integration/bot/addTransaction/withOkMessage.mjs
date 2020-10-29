@@ -5,7 +5,8 @@ import initApp from '../../../../lib/app.mjs';
 
 describe('bot add transaction with ok message', () => {
 	const app = fastify({
-		bodyLimit: 10240
+		bodyLimit: 10240,
+		logger: {level: 'error', prettyPrint: true}
 	});
 	const hledgerApp = fastify({logger: {level: 'error', prettyPrint: true}});
 	let testData;
