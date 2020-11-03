@@ -2,7 +2,11 @@ import assert from 'assert';
 import makeTransactionParams from
 	'../../../../../../lib/logic/botCommands/add/makeTransactionParams.mjs';
 
-describe('logic/botCommands/add/makeTransactionParams with one posting', () => {
+const describeTitle = (
+	'logic/botCommands/add/makeTransactionParams with default second account'
+);
+
+describe(describeTitle, () => {
 	const inputParams = {
 		date: Date.now(),
 		postings: [{
