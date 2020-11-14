@@ -28,7 +28,7 @@
   "homepage": "https://github.com/okv/telegram-hledger-bot#readme",
   "dependencies": {
     "dateformat": "3.0.3",
-    "fastify": "3.5.1",
+    "fastify": "3.8.0",
     "fastify-autoload": "3.3.0",
     "fastify-env": "2.0.1",
     "fastify-plugin": "2.3.4",
