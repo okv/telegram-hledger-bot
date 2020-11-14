@@ -41,6 +41,9 @@ describe('bot add transaction with ok message', () => {
 			hledgerApp.putAddReqs.push(req);
 			return {};
 		});
+		hledgerApp.get('/accountnames', () => {
+			return [];
+		});
 		const hledgerUrl = new URL(process.env.THB_HLEDGER_BASE_PATH);
 		await hledgerApp.listen(hledgerUrl.port, hledgerUrl.hostname);
 	});
