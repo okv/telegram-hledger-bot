@@ -9,3 +9,5 @@ script:
   - npm run lint
   - npm test
   - npm run coverageSummary
+  - npm run coverageDetails
+  - coveralls < coverage/lcov.info

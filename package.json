@@ -11,6 +11,7 @@
     "dev": "nodemon -e js,mjs,json -i test -w . lib/server.mjs",
     "test": "mocha --bail --reporter spec --recursive",
     "coverageSummary": "c8 --reporter text-summary --reporter html npm test",
+    "coverageDetails": "c8 --reporter lcov --reporter html npm test",
     "start": "echo \"Start script is not set\"; exit 1",
     "_build-docker-image": "if [ \"$imageTag\" = \"\" ]; then echo \"imageTag is not set\"; exit 1; fi; docker build --network host --tag okvd/telegram-hledger-bot:$imageTag ./ -f ./docker/Dockerfile",
     "build-docker-image": "export imageTag=$npm_package_version && npm run _build-docker-image",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "c8": "7.3.5",
+    "coveralls": "3.1.0",
     "eslint": "7.7.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.0",

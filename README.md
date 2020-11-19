@@ -5,7 +5,7 @@ Expenses tracking bot that adds transactions to your
 
 
 [![Build Status](https://travis-ci.org/okv/telegram-hledger-bot.svg?branch=main)](https://travis-ci.org/okv/telegram-hledger-bot)
-
+[![Coverage Status](https://coveralls.io/repos/github/okv/telegram-hledger-bot/badge.svg?branch=main)](https://coveralls.io/github/okv/telegram-hledger-bot?branch=main)
 
 In order to add transactions to hledger this service uses
 [hledger json api](https://hledger.org/hledger-web.html#json-api). Because
