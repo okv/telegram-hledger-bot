@@ -10,10 +10,35 @@ Expenses tracking bot that adds transactions to your
 In order to add transactions to hledger this service uses
 [hledger json api](https://hledger.org/hledger-web.html#json-api). Because
 of hledger api implementation details this sevice is compatible with
-**specific versions of hledger web** current supported version is **1.19.1**.
+**specific versions of hledger web** currently supported version is **1.19.1**.
 
 
-**...WIP...**
+**...current status is WORK IN PROGRESS, so broken changes might happen...**
+
+
+## Configuration
+
+Service could be configured using environment variables:
+
+* **THB_HOST**: string -- host to listen, the default value is "0.0.0.0"
+* **THB_PORT**: string -- port to listen, the default value is "3000"
+* **THB_BOT_API_BASE_PATH**: string -- telegram api base url, the default value
+is "https://api.telegram.org"
+* **THB_BOT_TOKEN**: string -- your bot token, this is a **required** parameter
+* **THB_BOT_WEBHOOK_PATH**: string -- if it's set (e.g. to
+"/telegram/webhook/somesecret") then the bot will start in hook mode, pooling
+mode will be used otherwise
+* **THB_HLEDGER_BASE_PATH**: string -- hledger web base url, the default value
+is "http://127.0.0.1:5000"
+* **THB_DEFAULT_SECOND_ACCOUNT**: string -- this account will be used if
+second account isn't set in the message, the default value is "Assets"
+* **THB_FIRST_ACCOUNT_PARENT**: string -- if this option is set then it will
+be added before the account in the message (e.g. if you set this to "Expenses"
+and send message "10 Food" then amount 10 will be added to account
+"Expenses:Food")
+* **THB_CAPITALIZE_ACCOUNT**: boolean -- if this is set to `true` then the
+first and the second accounts from the message will be capitalized ("food" ->
+"Food"), the default value is `false`
 
 
 ## Development
