@@ -1,4 +1,4 @@
-FROM node:14.14.0-alpine3.10
+FROM node:18.12.0-alpine3.15
 
 ENV NODE_ENV="production"
 ENV USER="telegram-hledger-bot"
