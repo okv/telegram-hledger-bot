@@ -4,7 +4,7 @@ Expenses tracking bot that adds transactions to your
 [hledger web](https://hledger.org/hledger-web.html) instance.
 
 
-[![Build Status](https://travis-ci.org/okv/telegram-hledger-bot.svg?branch=main)](https://travis-ci.org/okv/telegram-hledger-bot)
+[![Build Status](https://github.com/okv/telegram-hledger-bot/actions/workflows/nodejs-main.yml/badge.svg?branch=master)](https://github.com/okv/telegram-hledger-bot/actions/workflows/nodejs-main.yml?query=branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/okv/telegram-hledger-bot/badge.svg?branch=main)](https://coveralls.io/github/okv/telegram-hledger-bot?branch=main)
 
 In order to add transactions to hledger this service uses
