@@ -1,6 +1,6 @@
 {
   "name": "telegram-hledger-bot",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Expenses tracking bot that adds transactions to your hledger web instance",
   "main": "lib/server.mjs",
   "directories": {
