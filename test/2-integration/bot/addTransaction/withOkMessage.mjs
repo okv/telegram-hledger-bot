@@ -150,7 +150,7 @@ describe('bot add transaction with ok message', () => {
 	});
 
 	after(async () => {
-		await app.stopBot?.();
+		await app.close();
 		await hledgerApp.close();
 	});
 });
