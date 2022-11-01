@@ -3,7 +3,7 @@ import fastify from 'fastify';
 import fetch from 'node-fetch';
 import initApp from '../../../../lib/app.mjs';
 
-describe('bot add transaction with ok message', () => {
+describe('bot add transaction with multiline message', () => {
 	const app = fastify({
 		bodyLimit: 10240,
 		logger: {level: 'error', prettyPrint: true}
@@ -26,8 +26,7 @@ describe('bot add transaction with ok message', () => {
 				),
 				isoString: '2020-10-15'
 			},
-			firstAccount: 'Fuel',
-			amount: 123
+			text: '123 Fuel\nline 2'
 		};
 	});
 
@@ -48,7 +47,7 @@ describe('bot add transaction with ok message', () => {
 		await hledgerApp.listen(hledgerUrl.port, hledgerUrl.hostname);
 	});
 
-	it('should return expected result', async () => {
+	it('should return error message', async () => {
 		const body = {
 			update_id: 1,
 			message: {
@@ -69,7 +68,7 @@ describe('bot add transaction with ok message', () => {
 					type: 'private'
 				},
 				date: testData.date.timestamp,
-				text: `/add ${testData.amount} ${testData.firstAccount}`
+				text: testData.text
 			}
 		};
 		const url = (
@@ -96,56 +95,20 @@ describe('bot add transaction with ok message', () => {
 				method: 'sendMessage',
 				chat_id: 1,
 				text: (
-					`Amount ${testData.amount} added to account ` +
-					`${testData.firstAccount}`
+					'Sorry, cannot understand what to do, "add" ' +
+					'command should go like this: /add (amount) ' +
+					'(first account)[;second account] [description]'
 				),
 				reply_to_message_id: 1
 			}
 		);
 	});
 
-	it('should call hledger with expected params', async () => {
+	it('should not call hledger', async () => {
 		assert.strictEqual(
 			hledgerApp.putAddReqs?.length,
-			1,
-			'Should call hledger once'
-		);
-		const {body} = hledgerApp.putAddReqs[0];
-		assert(typeof body === 'object', 'Body should be an object');
-		assert.strictEqual(
-			body.tdate,
-			testData.date.isoString,
-			'Body should have date'
-		);
-		assert.strictEqual(
-			body.tdescription,
-			'',
-			'Body should have empty description'
-		);
-		assert.strictEqual(
-			body?.tpostings?.length,
-			2,
-			'Two postings should be presented'
-		);
-		assert.strictEqual(
-			body?.tpostings?.[0]?.paccount,
-			testData.firstAccount,
-			'First posting should have account'
-		);
-		assert.strictEqual(
-			body?.tpostings?.[0]?.pamount?.[0]?.aquantity?.floatingPoint,
-			testData.amount,
-			'Fisrt posting should have amount'
-		);
-		assert.strictEqual(
-			body?.tpostings?.[1]?.paccount,
-			process.env.THB_DEFAULT_SECOND_ACCOUNT,
-			'Second posting should have account'
-		);
-		assert.strictEqual(
-			body?.tpostings?.[1]?.pamount?.[0]?.aquantity?.floatingPoint,
-			testData.amount * -1,
-			'Second posting should have amount'
+			0,
+			'Should not call hledger'
 		);
 	});
 

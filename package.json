@@ -1,6 +1,6 @@
 {
   "name": "telegram-hledger-bot",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Expenses tracking bot that adds transactions to your hledger web instance",
   "main": "lib/server.mjs",
   "directories": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "dateformat": "3.0.3",
     "fastify": "3.8.0",
-    "fastify-autoload": "3.3.1",
+    "fastify-autoload": "3.13.0",
     "fastify-env": "2.0.1",
     "fastify-plugin": "2.3.4",
     "node-fetch": "3.2.10",
